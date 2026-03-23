@@ -28,8 +28,8 @@ const CONFIG = {
     sidebarColor: '#e1b20f',   // right panel background
     headerColor: '#b9702cff',   // top bar background
     accentColor: '#e1b20f',   // rings, borders, highlights
-    accentDark: '#a87e08',   // darker accent (borders)
-    accentLight: '#f5d44a',   // lighter accent (hover states)
+    accentDark: '#b9702c',   // darker accent (borders)
+    accentLight: '#f58e4aff',   // lighter accent (hover states)
     textLight: '#e1b20f',   // main light text
     textDim: '#c8aa72',   // muted/secondary text
   },

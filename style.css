@@ -80,7 +80,8 @@ body {
   position: relative;
   overflow: hidden;
   cursor: crosshair;
-  background: #111;
+  background: #000;
+  border-radius: 0 0 70px 70px;
 }
 
 .scene-img {
@@ -97,7 +98,8 @@ body {
   width: 280px;
   min-width: 260px;
   background: var(--sidebar);
-  border-left: 3px solid var(--accent-dark);
+  border-left: 10px solid var(--accent-dark);
+  border-right: 10px solid var(--accent-dark);
   display: flex;
   flex-direction: column;
   overflow: hidden;
