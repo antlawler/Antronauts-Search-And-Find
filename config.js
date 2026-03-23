@@ -30,7 +30,7 @@ const CONFIG = {
     accentColor: '#e1b20f',   // rings, borders, highlights
     accentDark: '#a87e08',   // darker accent (borders)
     accentLight: '#f5d44a',   // lighter accent (hover states)
-    textLight: '#fdf3dc',   // main light text
+    textLight: '#e1b20f',   // main light text
     textDim: '#c8aa72',   // muted/secondary text
   },
 
@@ -41,14 +41,14 @@ const CONFIG = {
   // ----------------------------------------------------------
 
   labels: {
-    gameTitle: 'ANTRONAUTS: SEARCH-AND-FIND',
-    sidebarTitle: 'CHARACTER KEY',   // coloured letter-by-letter heading
+    gameTitle: 'Search and Find',
+    sidebarTitle: 'KEY',   // coloured letter-by-letter heading
     findLabel: 'Can you find...',  // subtitle under sidebar heading
     progressPrefix: 'PROGRESS:',       // text before "3/12"
     hintButton: 'HINT',            // hint button text
     playAgainButton: 'PLAY AGAIN',
-    winTitle: 'You Found Them All!',
-    winSubtitle: 'Amazing — every character discovered!',
+    winTitle: 'COMPLETE!',
+    winSubtitle: 'You found everyone!',
   },
 
 
@@ -106,72 +106,72 @@ const CONFIG = {
     {
       id: 'character-1',
       name: 'K.y.l.e',
-      image: '1.jpg',
+      image: 'images/1.jpg',
       hint: 'Bubble Gum. Yum!',
       ringColor: '#4caf50',
       numColor: '#2e7d32',
-      x: 58.91,
-      y: 67.69,
+      x: 72.16,
+      y: 65.13,
       radius: 4.5,
     },
 
     {
       id: 'character-2',
       name: 'F.i.d.d.l.e',
-      image: '2.jpg',
+      image: 'images/2.jpg',
       hint: 'Annoyed at Frank',
       ringColor: '#f44336',
       numColor: '#c62828',
-      x: 69.71,
-      y: 71.84,
+      x: 85.90,
+      y: 69.97,
       radius: 4.5,
     },
 
     {
       id: 'character-3',
       name: 'G.u.r.d.y',
-      image: '3.jpg',
+      image: 'images/3.jpg',
       hint: 'Supply pickup!',
       ringColor: '#42a5f5',
       numColor: '#1565c0',
-      x: 60.29,
-      y: 80.13,
+      x: 74.36,
+      y: 79.64,
       radius: 4.5,
     },
 
     {
       id: 'character-4',
       name: 'Zooka',
-      image: '4.jpg',
+      image: 'images/4.jpg',
       hint: 'A bad delivery.',
       ringColor: '#ff9800',
       numColor: '#e65100',
-      x: 22.90,
-      y: 28.80,
+      x: 28.46,
+      y: 23.73,
       radius: 4.5,
     },
 
     {
       id: 'character-5',
       name: 'Blaze',
-      image: '5.jpg',
+      image: 'images/5.jpg',
       hint: 'His ride is late',
       ringColor: '#e91e63',
       numColor: '#880e4f',
-      x: 43.26,
-      y: 59.94,
+      x: 53.74,
+      y: 56.36,
       radius: 4.5,
     },
 
     {
       id: 'character-6',
       name: 'Snoozer',
-      image: '6.jpg',
+      image: 'images/6.jpg',
       hint: 'He missed his ride.',
       ringColor: '#9c27b0',
       numColor: '#4a148c',
-      x: 11.74,
-      y: 82.25,
+      x: 14.45,
+      y: 82.34,
       radius: 4.5,
     },
 
