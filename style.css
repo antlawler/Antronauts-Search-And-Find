@@ -614,7 +614,7 @@ body {
     min-width: unset;
     border-left: none;
     border-top: 3px solid var(--accent-dark);
-    max-height: 220px;
+    max-height: 320px;
   }
 
   .char-grid {
