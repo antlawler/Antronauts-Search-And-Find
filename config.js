@@ -41,7 +41,7 @@ const CONFIG = {
   // ----------------------------------------------------------
 
   labels: {
-    gameTitle: 'ANTRONAUTS: Bug Search!',
+    gameTitle: 'ANTRONAUTS: Bug Hunt!',
     sidebarTitle: 'KEY',   // coloured letter-by-letter heading
     findLabel: 'Can you find...',  // subtitle under sidebar heading
     progressPrefix: 'PROGRESS:',       // text before "3/12"
