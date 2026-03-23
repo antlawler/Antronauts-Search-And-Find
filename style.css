@@ -177,7 +177,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 110px);
   justify-content: center;
-  row-gap: 8px;
+  row-gap: 20px;
   column-gap: 18px;
   align-content: start;
 }
@@ -309,9 +309,9 @@ body {
 }
 
 .char-name {
-  font-size: 0.58rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  color: var(--text-light);
+  color: #ffffff;
   text-align: center;
   line-height: 1.25;
   max-width: 70px;

@@ -188,9 +188,9 @@
           name.className = 'char-name';
           name.textContent = ch.name.replace('\\n', '\n');
 
+          cell.appendChild(name);
           cell.appendChild(wrap);
           cell.appendChild(status);
-          cell.appendChild(name);
           grid.appendChild(cell);
         });
       }

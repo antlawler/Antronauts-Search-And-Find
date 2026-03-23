@@ -174,6 +174,29 @@ const CONFIG = {
       y: 82.34,
       radius: 4.5,
     },
+    {
+      id: 'character-7',
+      name: 'Papa Pies',
+      image: 'images/7.jpg', // ← temp until you add 7.jpg
+      hint: 'Quite the traffic jam!',
+      ringColor: '#00bcd4',
+      numColor: '#00838f',
+      x: 39.82, // ← center of scene, safe placeholder
+      y: 77.57,
+      radius: 4.5,
+    },
+
+    {
+      id: 'character-8',
+      name: 'Leaper',
+      image: 'images/8.jpg', // ← temp until you add 8.jpg
+      hint: 'Watch that gas line!',
+      ringColor: '#ff5722',
+      numColor: '#bf360c',
+      x: 95.87, // ← slightly offset so they don't overlap
+      y: 48.13,
+      radius: 4.5,
+    },
 
   ],
 
