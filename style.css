@@ -93,6 +93,23 @@ body {
   pointer-events: none;
 }
 
+
+/* ── PREVENT TEXT CURSOR & SELECTION ────────────────────── */
+.header,
+.header-title,
+.scene-wrap,
+.scene-img,
+.sidebar,
+.char-grid,
+.char-cell,
+.char-name,
+.char-status,
+.char-ring-wrap,
+.char-portrait {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 /* ── SIDEBAR ─────────────────────────────────────────── */
 .sidebar {
   width: 280px;
