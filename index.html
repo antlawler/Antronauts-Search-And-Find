@@ -30,7 +30,7 @@
       <div class="toast" id="toast"></div>
     </div>
 
-    <!-- Sidebar -->
+    <!-- Sideebar -->
     <aside class="sidebar">
       <div class="char-key-header">
         <div class="char-key-title-row">
@@ -386,8 +386,11 @@
         const cx = touch.clientX - r.left;
         const cy = touch.clientY - r.top;
 
-        loupe.style.left = (cx - LOUPE_SIZE / 2) + 'px';
-        loupe.style.top = (cy - LOUPE_SIZE / 2 - 80) + 'px';
+        // Position loupe above finger
+        const loupeX = cx - LOUPE_SIZE / 2;
+        const loupeY = cy - LOUPE_SIZE / 2 - 80;
+        loupe.style.left = loupeX + 'px';
+        loupe.style.top = loupeY + 'px';
         loupe.style.display = 'block';
 
         const { rW, rH, ox, oy } = imgLayout();
@@ -400,8 +403,13 @@
         loupe.style.backgroundSize = `${bgW}px ${bgH}px`;
         loupe.style.backgroundPosition = `${bgX}px ${bgY}px`;
 
-        // Check proximity to any unfound character
-        const { px, py } = clickToPct(cx, cy);
+        // ── The loupe crosshair centre in scene coordinates ──
+        // The loupe center is at (cx, cy - 80) in wrap pixels
+        // Convert that point to scene percentage for hit detection
+        const loupeCentreX = cx;
+        const loupeCentreY = cy - 80; // same offset used to position the loupe
+        const { px, py } = clickToPct(loupeCentreX, loupeCentreY);
+
         let near = null;
         for (const ch of chars) {
           if (ch.found) continue;
