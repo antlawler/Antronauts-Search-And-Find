@@ -314,7 +314,7 @@
 
         // Position loupe centred on cursor
         loupe.style.left = (cx - LOUPE_SIZE / 2) + 'px';
-        loupe.style.top  = (cy - LOUPE_SIZE / 2) + 'px';
+        loupe.style.top = (cy - LOUPE_SIZE / 2) + 'px';
         loupe.style.display = 'block';
 
         // Calculate zoomed background
@@ -324,8 +324,8 @@
         const bgX = -((cx - ox) * ZOOM - LOUPE_SIZE / 2);
         const bgY = -((cy - oy) * ZOOM - LOUPE_SIZE / 2);
 
-        loupe.style.backgroundImage    = `url('${CONFIG.sceneImage}')`;
-        loupe.style.backgroundSize     = `${bgW}px ${bgH}px`;
+        loupe.style.backgroundImage = `url('${CONFIG.sceneImage}')`;
+        loupe.style.backgroundSize = `${bgW}px ${bgH}px`;
         loupe.style.backgroundPosition = `${bgX}px ${bgY}px`;
       });
 
@@ -333,6 +333,37 @@
         loupe.style.display = 'none';
       });
 
+      // ── Magnifier Loupe — Touch Support ───────────────────────
+      const sceneWrap = document.getElementById('scene-wrap');
+
+      function updateLoupeFromTouch(e) {
+        e.preventDefault(); // prevents page scrolling while using loupe
+        const touch = e.touches[0];
+        const r = sceneWrap.getBoundingClientRect();
+        const cx = touch.clientX - r.left;
+        const cy = touch.clientY - r.top;
+
+        // Position loupe centred on finger
+        loupe.style.left = (cx - LOUPE_SIZE / 2) + 'px';
+        loupe.style.top = (cy - LOUPE_SIZE / 2 - 80) + 'px'; // offset upward so finger doesn't cover it
+        loupe.style.display = 'block';
+
+        // Calculate zoomed background (same logic as mousemove)
+        const { rW, rH, ox, oy } = imgLayout();
+        const bgW = rW * ZOOM;
+        const bgH = rH * ZOOM;
+        const bgX = -((cx - ox) * ZOOM - LOUPE_SIZE / 2);
+        const bgY = -((cy - oy) * ZOOM - LOUPE_SIZE / 2);
+
+        loupe.style.backgroundImage = `url('${CONFIG.sceneImage}')`;
+        loupe.style.backgroundSize = `${bgW}px ${bgH}px`;
+        loupe.style.backgroundPosition = `${bgX}px ${bgY}px`;
+      }
+
+      sceneWrap.addEventListener('touchstart', updateLoupeFromTouch, { passive: false });
+      sceneWrap.addEventListener('touchmove', updateLoupeFromTouch, { passive: false });
+      sceneWrap.addEventListener('touchend', () => loupe.style.display = 'none');
+      sceneWrap.addEventListener('touchcancel', () => loupe.style.display = 'none');
 
       const hintBtn = document.getElementById('hint-btn');
 
