@@ -300,7 +300,41 @@
         }
       });
 
-      // ── Hint button ────────────────────────────────────────────
+      // ── Magnifier Loupe ────────────────────────────────────────
+      const ZOOM = 2.5;
+      const LOUPE_SIZE = 160;
+
+      const loupe = document.createElement('div');
+      loupe.className = 'loupe';
+      document.getElementById('scene-wrap').appendChild(loupe);
+
+      document.getElementById('scene-wrap').addEventListener('mousemove', function (e) {
+        const r = this.getBoundingClientRect();
+        const cx = e.clientX - r.left;
+        const cy = e.clientY - r.top;
+
+        // Position loupe centred on cursor
+        loupe.style.left = (cx - LOUPE_SIZE / 2) + 'px';
+        loupe.style.top  = (cy - LOUPE_SIZE / 2) + 'px';
+        loupe.style.display = 'block';
+
+        // Calculate zoomed background
+        const { rW, rH, ox, oy } = imgLayout();
+        const bgW = rW * ZOOM;
+        const bgH = rH * ZOOM;
+        const bgX = -((cx - ox) * ZOOM - LOUPE_SIZE / 2);
+        const bgY = -((cy - oy) * ZOOM - LOUPE_SIZE / 2);
+
+        loupe.style.backgroundImage    = `url('${CONFIG.sceneImage}')`;
+        loupe.style.backgroundSize     = `${bgW}px ${bgH}px`;
+        loupe.style.backgroundPosition = `${bgX}px ${bgY}px`;
+      });
+
+      document.getElementById('scene-wrap').addEventListener('mouseleave', function () {
+        loupe.style.display = 'none';
+      });
+
+
       const hintBtn = document.getElementById('hint-btn');
 
       function refreshHintBtn() {

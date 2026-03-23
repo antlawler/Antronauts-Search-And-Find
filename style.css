@@ -94,8 +94,8 @@ body {
 
 /* ── SIDEBAR ─────────────────────────────────────────── */
 .sidebar {
-  width: 260px;
-  min-width: 240px;
+  width: 280px;
+  min-width: 260px;
   background: var(--sidebar);
   border-left: 3px solid var(--accent-dark);
   display: flex;
@@ -173,8 +173,10 @@ body {
   overflow-y: auto;
   padding: 10px 8px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(2, 110px);
+  justify-content: center;
+  row-gap: 8px;
+  column-gap: 18px;
   align-content: start;
 }
 
@@ -197,12 +199,19 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 3px;
+  overflow: visible;
 }
 
 .char-ring-wrap {
   position: relative;
-  width: 66px;
-  height: 66px;
+  width: 100px;
+  height: 100px;
+  transition: transform 0.2s ease;
+}
+
+.char-ring-wrap:hover {
+  transform: scale(1.15);
+  cursor: zoom-in;
 }
 
 .char-ring-wrap svg {
@@ -411,6 +420,34 @@ body {
   background: rgba(225, 178, 15, 0.15);
   box-shadow: 0 0 16px rgba(225, 178, 15, 0.55);
 }
+
+/* ── MAGNIFIER LOUPE ─────────────────────────────────── */
+.loupe {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #f5d44a;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255,255,255,0.1);
+  pointer-events: none;
+  display: none;
+  z-index: 50;
+  background-repeat: no-repeat;
+  cursor: none;
+}
+
+/* centre crosshair */
+.loupe::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 213, 74, 0.7);
+}
+
 
 @keyframes pop-in {
   0% {
