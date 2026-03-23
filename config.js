@@ -1,5 +1,5 @@
 // ============================================================
-//  ANTRONAUTS: SEARCH-AND-FIND — CONFIGURATION FILE!
+//  ANTRONAUTS: SEARCH-AND-FIND — CONFIGURATION FILE!!
 //  This is the ONLY file you need to edit to update the game.
 // ============================================================
 //
