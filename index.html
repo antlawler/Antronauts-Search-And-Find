@@ -351,12 +351,15 @@
         removeDwellRing();
         dwellTarget = ch;
 
-        const { x, y } = pctToPixel(ch.x, ch.y);
+        // Place the ring at the loupe's centre (finger position - 80px offset)
+        // rather than the character's scene position
+        const loupeLeft = parseFloat(loupe.style.left) + LOUPE_SIZE / 2;
+        const loupeTop = parseFloat(loupe.style.top) + LOUPE_SIZE / 2;
 
         dwellRing = document.createElement('div');
         dwellRing.className = 'dwell-ring';
-        dwellRing.style.left = x + 'px';
-        dwellRing.style.top = y + 'px';
+        dwellRing.style.left = loupeLeft + 'px';
+        dwellRing.style.top = loupeTop + 'px';
         dwellRing.style.animationDuration = DWELL_TIME + 'ms';
         sceneWrap.appendChild(dwellRing);
 
