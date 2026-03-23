@@ -579,7 +579,7 @@ body {
 
 .win-btn {
   background: var(--accent);
-  color: var(--sidebar);
+  color: var#3a1a00;
   border: none;
   padding: 11px 34px;
   border-radius: 30px;
@@ -602,6 +602,13 @@ body {
     flex-direction: column;
   }
 
+  .scene-wrap {
+    height: 45vh;
+    /* ← caps the scene area so black bars don't appear */
+    flex: none;
+    /* ← stops it stretching to fill remaining space */
+  }
+
   .sidebar {
     width: 100%;
     min-width: unset;
@@ -618,68 +625,69 @@ body {
     font-size: 1rem;
     letter-spacing: 1px;
   }
+}
 
-  /* ── DWELL RING ──────────────────────────────────────────── */
-  .dwell-ring {
-    position: absolute;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    pointer-events: none;
-    z-index: 25;
-    border: 3px solid #f5d44a;
-    box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
-    animation: dwell-shrink linear forwards;
+/* ── DWELL RING ──────────────────────────────────────────── */
+.dwell-ring {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  z-index: 25;
+  border: 3px solid #f5d44a;
+  box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
+  animation: dwell-shrink linear forwards;
+}
+
+@keyframes dwell-shrink {
+  0% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 1;
+    border-color: #f5d44a;
   }
 
-  @keyframes dwell-shrink {
-    0% {
-      transform: translate(-50%, -50%) scale(1.8);
-      opacity: 1;
-      border-color: #f5d44a;
-    }
-
-    70% {
-      border-color: #4caf50;
-    }
-
-    100% {
-      transform: translate(-50%, -50%) scale(0.4);
-      opacity: 0.8;
-      border-color: #4caf50;
-    }
+  70% {
+    border-color: #4caf50;
   }
 
-  /* ── DWELL RING ──────────────────────────────────────────── */
-  .dwell-ring {
-    position: absolute;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    pointer-events: none;
-    z-index: 25;
-    border: 3px solid #f5d44a;
-    box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
-    animation: dwell-shrink linear forwards;
+  100% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.8;
+    border-color: #4caf50;
+  }
+}
+
+/* ── DWELL RING ──────────────────────────────────────────── */
+.dwell-ring {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  z-index: 25;
+  border: 3px solid #f5d44a;
+  box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
+  animation: dwell-shrink linear forwards;
+}
+
+@keyframes dwell-shrink {
+  0% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 1;
+    border-color: #f5d44a;
   }
 
-  @keyframes dwell-shrink {
-    0% {
-      transform: translate(-50%, -50%) scale(1.8);
-      opacity: 1;
-      border-color: #f5d44a;
-    }
-
-    70% {
-      border-color: #4caf50;
-    }
-
-    100% {
-      transform: translate(-50%, -50%) scale(0.4);
-      opacity: 0.8;
-      border-color: #4caf50;
-    }
+  70% {
+    border-color: #4caf50;
   }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.8;
+    border-color: #4caf50;
+  }
+}
 }
