@@ -1,6 +1,6 @@
 /* ============================================================
    ANTRONAUTS: SEARCH-AND-FIND — STYLES
-   You rarely need to edit this file!
+   You rarely need to edit this file!!
    All colours are driven by CSS variables set by config.js
    ============================================================ */
 
@@ -233,7 +233,6 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0;
-  /* hides emoji fallback — portraits are images only */
 }
 
 .char-portrait img {
@@ -423,6 +422,39 @@ body {
   box-shadow: 0 0 16px rgba(225, 178, 15, 0.55);
 }
 
+/* ── DWELL RING ──────────────────────────────────────── */
+/* z-index: 60 — sits ABOVE the loupe (z-index: 50) so it's always visible */
+.dwell-ring {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  z-index: 60;
+  border: 3px solid #f5d44a;
+  box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
+  animation: dwell-shrink linear forwards;
+}
+
+@keyframes dwell-shrink {
+  0% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 1;
+    border-color: #f5d44a;
+  }
+
+  70% {
+    border-color: #4caf50;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.8;
+    border-color: #4caf50;
+  }
+}
+
 /* ── MAGNIFIER LOUPE ─────────────────────────────────── */
 .loupe {
   position: absolute;
@@ -449,7 +481,6 @@ body {
   border-radius: 50%;
   border: 1.5px solid rgba(255, 213, 74, 0.7);
 }
-
 
 @keyframes pop-in {
   0% {
@@ -579,7 +610,8 @@ body {
 
 .win-btn {
   background: var(--accent);
-  color: var#3a1a00;
+  color: #3a1a00;
+  /* ← fixed from broken "var#3a1a00" */
   border: none;
   padding: 11px 34px;
   border-radius: 30px;
@@ -604,9 +636,7 @@ body {
 
   .scene-wrap {
     height: 45vh;
-    /* ← caps the scene area so black bars don't appear */
     flex: none;
-    /* ← stops it stretching to fill remaining space */
   }
 
   .sidebar {
@@ -625,69 +655,4 @@ body {
     font-size: 1rem;
     letter-spacing: 1px;
   }
-}
-
-/* ── DWELL RING ──────────────────────────────────────────── */
-.dwell-ring {
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  pointer-events: none;
-  z-index: 25;
-  border: 3px solid #f5d44a;
-  box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
-  animation: dwell-shrink linear forwards;
-}
-
-@keyframes dwell-shrink {
-  0% {
-    transform: translate(-50%, -50%) scale(1.8);
-    opacity: 1;
-    border-color: #f5d44a;
-  }
-
-  70% {
-    border-color: #4caf50;
-  }
-
-  100% {
-    transform: translate(-50%, -50%) scale(0.4);
-    opacity: 0.8;
-    border-color: #4caf50;
-  }
-}
-
-/* ── DWELL RING ──────────────────────────────────────────── */
-.dwell-ring {
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  pointer-events: none;
-  z-index: 25;
-  border: 3px solid #f5d44a;
-  box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
-  animation: dwell-shrink linear forwards;
-}
-
-@keyframes dwell-shrink {
-  0% {
-    transform: translate(-50%, -50%) scale(1.8);
-    opacity: 1;
-    border-color: #f5d44a;
-  }
-
-  70% {
-    border-color: #4caf50;
-  }
-
-  100% {
-    transform: translate(-50%, -50%) scale(0.4);
-    opacity: 0.8;
-    border-color: #4caf50;
-  }
-}
 }
