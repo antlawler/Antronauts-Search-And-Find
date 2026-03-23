@@ -230,7 +230,7 @@ body {
 
 .char-ring-wrap:hover {
   transform: scale(1.15);
-  cursor: zoom-in;
+  cursor: default;
 }
 
 .char-ring-wrap svg {
