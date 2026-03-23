@@ -30,7 +30,7 @@ const CONFIG = {
     accentColor: '#e1b20f',   // rings, borders, highlights
     accentDark: '#b9702c',   // darker accent (borders)
     accentLight: '#f58e4aff',   // lighter accent (hover states)
-    textLight: '#fcf7e5ff',   // main light text
+    textLight: '#e1b20f',   // main light text
     textDim: '#c8aa72',   // muted/secondary text
   },
 
@@ -41,7 +41,7 @@ const CONFIG = {
   // ----------------------------------------------------------
 
   labels: {
-    gameTitle: 'THE ANTRONAUTS: Search and Find!',
+    gameTitle: 'ANTRONAUTS: Bug Search!',
     sidebarTitle: 'KEY',   // coloured letter-by-letter heading
     findLabel: 'Can you find...',  // subtitle under sidebar heading
     progressPrefix: 'PROGRESS:',       // text before "3/12"
