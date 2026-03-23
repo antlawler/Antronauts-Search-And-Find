@@ -44,7 +44,7 @@ body {
   font-size: 1.45rem;
   color: var(--text-light);
   letter-spacing: 2px;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
