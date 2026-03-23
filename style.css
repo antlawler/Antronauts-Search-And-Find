@@ -618,4 +618,68 @@ body {
     font-size: 1rem;
     letter-spacing: 1px;
   }
+
+  /* ── DWELL RING ──────────────────────────────────────────── */
+  .dwell-ring {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: none;
+    z-index: 25;
+    border: 3px solid #f5d44a;
+    box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
+    animation: dwell-shrink linear forwards;
+  }
+
+  @keyframes dwell-shrink {
+    0% {
+      transform: translate(-50%, -50%) scale(1.8);
+      opacity: 1;
+      border-color: #f5d44a;
+    }
+
+    70% {
+      border-color: #4caf50;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(0.4);
+      opacity: 0.8;
+      border-color: #4caf50;
+    }
+  }
+
+  /* ── DWELL RING ──────────────────────────────────────────── */
+  .dwell-ring {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: none;
+    z-index: 25;
+    border: 3px solid #f5d44a;
+    box-shadow: 0 0 12px rgba(245, 212, 74, 0.6);
+    animation: dwell-shrink linear forwards;
+  }
+
+  @keyframes dwell-shrink {
+    0% {
+      transform: translate(-50%, -50%) scale(1.8);
+      opacity: 1;
+      border-color: #f5d44a;
+    }
+
+    70% {
+      border-color: #4caf50;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(0.4);
+      opacity: 0.8;
+      border-color: #4caf50;
+    }
+  }
 }

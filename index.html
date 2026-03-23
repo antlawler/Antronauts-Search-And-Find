@@ -335,20 +335,59 @@
 
       // ── Magnifier Loupe — Touch Support ───────────────────────
       const sceneWrap = document.getElementById('scene-wrap');
+      let longPressTimer = null;
+      let dwellTarget = null;
+      let dwellRing = null;
+      const DWELL_TIME = 2500;
+      const DWELL_RADIUS = 8;
+
+      function removeDwellRing() {
+        if (dwellRing) { dwellRing.remove(); dwellRing = null; }
+        clearTimeout(longPressTimer);
+        dwellTarget = null;
+      }
+
+      function startDwell(ch) {
+        if (dwellTarget === ch) return;
+        removeDwellRing();
+        dwellTarget = ch;
+
+        const { x, y } = pctToPixel(ch.x, ch.y);
+
+        dwellRing = document.createElement('div');
+        dwellRing.className = 'dwell-ring';
+        dwellRing.style.left = x + 'px';
+        dwellRing.style.top = y + 'px';
+        dwellRing.style.animationDuration = DWELL_TIME + 'ms';
+        sceneWrap.appendChild(dwellRing);
+
+        longPressTimer = setTimeout(() => {
+          if (dwellTarget !== ch) return;
+          ch.found = true;
+          const { x, y } = pctToPixel(ch.x, ch.y);
+          ripple(x, y, true);
+          placeMarker(ch);
+          document.getElementById('cell-' + ch.id).classList.add('found');
+          const s = document.getElementById('status-' + ch.id);
+          s.className = 'char-status is-found';
+          s.textContent = 'FOUND!';
+          toast('✓ Found ' + ch.name.replace('\\n', ' '), 'hit', 1000);
+          updateProgress();
+          removeDwellRing();
+        }, DWELL_TIME);
+      }
 
       function updateLoupeFromTouch(e) {
-        e.preventDefault(); // prevents page scrolling while using loupe
+        e.preventDefault();
         const touch = e.touches[0];
         const r = sceneWrap.getBoundingClientRect();
         const cx = touch.clientX - r.left;
         const cy = touch.clientY - r.top;
 
-        // Position loupe centred on finger
         loupe.style.left = (cx - LOUPE_SIZE / 2) + 'px';
-        loupe.style.top = (cy - LOUPE_SIZE / 2 - 80) + 'px'; // offset upward so finger doesn't cover it
+        loupe.style.top = (cy - LOUPE_SIZE / 2 - 80) + 'px';
         loupe.style.display = 'block';
 
-        // Calculate zoomed background (same logic as mousemove)
         const { rW, rH, ox, oy } = imgLayout();
         const bgW = rW * ZOOM;
         const bgH = rH * ZOOM;
@@ -358,12 +397,26 @@
         loupe.style.backgroundImage = `url('${CONFIG.sceneImage}')`;
         loupe.style.backgroundSize = `${bgW}px ${bgH}px`;
         loupe.style.backgroundPosition = `${bgX}px ${bgY}px`;
+
+        // Check proximity to any unfound character
+        const { px, py } = clickToPct(cx, cy);
+        let near = null;
+        for (const ch of chars) {
+          if (ch.found) continue;
+          if (Math.hypot(px - ch.x, py - ch.y) <= DWELL_RADIUS) { near = ch; break; }
+        }
+
+        if (near) {
+          startDwell(near);
+        } else {
+          removeDwellRing();
+        }
       }
 
       sceneWrap.addEventListener('touchstart', updateLoupeFromTouch, { passive: false });
       sceneWrap.addEventListener('touchmove', updateLoupeFromTouch, { passive: false });
-      sceneWrap.addEventListener('touchend', () => loupe.style.display = 'none');
-      sceneWrap.addEventListener('touchcancel', () => loupe.style.display = 'none');
+      sceneWrap.addEventListener('touchend', () => { removeDwellRing(); loupe.style.display = 'none'; });
+      sceneWrap.addEventListener('touchcancel', () => { removeDwellRing(); loupe.style.display = 'none'; });
 
       const hintBtn = document.getElementById('hint-btn');
 
