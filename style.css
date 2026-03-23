@@ -428,7 +428,7 @@ body {
   height: 160px;
   border-radius: 50%;
   border: 3px solid #f5d44a;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255,255,255,0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   pointer-events: none;
   display: none;
   z-index: 50;
@@ -493,8 +493,8 @@ body {
 
 /* ── TOAST ───────────────────────────────────────────── */
 .toast {
-  position: fixed;
-  top: 64px;
+  position: absolute;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
   padding: 8px 24px;
@@ -504,7 +504,7 @@ body {
   font-size: 0.95rem;
   opacity: 0;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 100;
   transition: opacity 0.2s, transform 0.2s;
   white-space: nowrap;
   letter-spacing: 0.3px;
