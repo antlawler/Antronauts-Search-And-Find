@@ -479,8 +479,9 @@ body {
 }
 
 .toast.hit {
-  background: var(--accent);
-  color: var(--sidebar);
+  background: #1a1a1a;
+  color: #f5d44a;
+  border: 2px solid #f5d44a;
 }
 
 .toast.miss {
